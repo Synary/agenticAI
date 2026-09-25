@@ -63,19 +63,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- CONFIGURATION ---
-
-# --- INITIALISATION DEEPGRAM POUR TRANSCRIPTION ---
-DEEPGRAM_API_KEY = "863c71021fa0421e89b5ab36b15e90a1ed8c4d47"
-transcriber = Transcriber(api_key="eaead13c9a0e4924b898441053948f57")
-aai.settings.api_key = "eaead13c9a0e4924b898441053948f57"
-DEEPSEEK_API_KEY="sk-f73cca5a0970426abea7ef2fd3c3e7ca"
-deepgram_client = None
-if DEEPGRAM_API_KEY:
-    deepgram_client = DeepgramClient(api_key=DEEPGRAM_API_KEY)
-    logger.info("✅ Deepgram client initialized successfully")
-else:
-    logger.warning("⚠️ DEEPGRAM_API_KEY not set. Audio transcription will not be available.")
 
 # --- INITIALISATION DES BASES DE DONNÉES ---
 # Collection ChromaDB commune : emails + transcriptions + Google Drive
